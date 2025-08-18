@@ -10,7 +10,6 @@ import 'package:friendly_card_admin/utils/inital_binding.dart';
 import 'package:friendly_card_admin/views/admin/admin_page.dart';
 import 'package:friendly_card_admin/views/login_page.dart';
 import 'package:friendly_card_admin/screens/teacher/teacher_form_screen.dart';
-import 'package:friendly_card_admin/views/teacher/teacher_page.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -63,7 +62,6 @@ class MyApp extends StatelessWidget {
           // binding:
         ),
         GetPage(name: '/admin', page: () => const AdminPage()),
-        GetPage(name: '/teacher', page: () => const TeacherPage()),
         GetPage(name: '/teacher_form', page: () => const TeacherFormScreen()),
         GetPage(
           name: '/vocabulary',

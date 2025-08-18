@@ -27,10 +27,13 @@ class OverviewScreen extends StatelessWidget {
           ? const LoadingPage()
           : Scaffold(
               body: ListView(
-                padding: EdgeInsets.symmetric(horizontal: Get.width * 0.02),
+                padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * 0.02,
+                  vertical: Get.height * 0.025,
+                ),
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: Get.height * 0.025),
+                    // margin: EdgeInsets.only(top: Get.height * 0.025),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.end,
