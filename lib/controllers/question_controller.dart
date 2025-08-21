@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:friendly_card_admin/config.dart';
 import 'package:friendly_card_admin/controllers/topic_controller.dart';
-import 'package:friendly_card_admin/controllers/users_controller.dart';
 import 'package:friendly_card_admin/controllers/vocabulary_controller.dart';
 import 'package:friendly_card_admin/models/option.dart';
 import 'package:friendly_card_admin/models/question.dart';
@@ -64,27 +63,11 @@ class QuestionController extends GetxController {
   }
 
   Future<int> countQuestionStatus(String status, String topicId) async {
-    if (Get.find<UsersController>().user.value.role == 'admin') {
-      var snapshoot = await questionCollection
-          .where('status', isEqualTo: status)
-          .where('topic_id', isEqualTo: topicId)
-          .get();
-      return snapshoot.docs.length;
-    } else {
-      if (Get.find<TopicController>().listTopics.isEmpty) {
-        return 0;
-      }
-      var snapshoot = await questionCollection
-          .where('status', isEqualTo: status)
-          .where(
-            'topic_id',
-            whereIn: Get.find<TopicController>().listTopics.value.map(
-              (t) => t.id,
-            ),
-          )
-          .get();
-      return snapshoot.docs.length;
-    }
+    var snapshoot = await questionCollection
+        .where('status', isEqualTo: status)
+        .where('topic_id', isEqualTo: topicId)
+        .get();
+    return snapshoot.docs.length;
   }
 
   Future<void> loadOption() async {

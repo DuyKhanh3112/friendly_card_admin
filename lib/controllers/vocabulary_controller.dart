@@ -6,7 +6,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:friendly_card_admin/config.dart';
 import 'package:friendly_card_admin/controllers/cloudinary_controller.dart';
 import 'package:friendly_card_admin/controllers/topic_controller.dart';
-import 'package:friendly_card_admin/controllers/users_controller.dart';
 import 'package:friendly_card_admin/models/vocabulary.dart';
 import 'package:friendly_card_admin/utils/tool.dart';
 import 'package:get/get.dart';
@@ -37,27 +36,11 @@ class VocabularyController extends GetxController {
   }
 
   Future<int> countVocabularyByStatus(String status, String topicID) async {
-    if (Get.find<UsersController>().user.value.role == 'admin') {
-      var snapshoot = await vocabularyCollection
-          .where('status', isEqualTo: status)
-          .where('topic_id', isEqualTo: topicID)
-          .get();
-      return snapshoot.docs.length;
-    } else {
-      if (Get.find<TopicController>().listTopics.isEmpty) {
-        return 0;
-      }
-      var snapshoot = await vocabularyCollection
-          .where('status', isEqualTo: status)
-          .where(
-            'topic_id',
-            whereIn: Get.find<TopicController>().listTopics.value.map(
-              (t) => t.id,
-            ),
-          )
-          .get();
-      return snapshoot.docs.length;
-    }
+    var snapshoot = await vocabularyCollection
+        .where('status', isEqualTo: status)
+        .where('topic_id', isEqualTo: topicID)
+        .get();
+    return snapshoot.docs.length;
   }
 
   Future<void> createVocabulary(Vocabulary item, String imgBase64) async {
