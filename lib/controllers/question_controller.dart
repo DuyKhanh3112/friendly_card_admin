@@ -63,10 +63,11 @@ class QuestionController extends GetxController {
     loading.value = false;
   }
 
-  Future<int> countQuestionStatus(String status) async {
+  Future<int> countQuestionStatus(String status, String topicId) async {
     if (Get.find<UsersController>().user.value.role == 'admin') {
       var snapshoot = await questionCollection
           .where('status', isEqualTo: status)
+          .where('topic_id', isEqualTo: topicId)
           .get();
       return snapshoot.docs.length;
     } else {

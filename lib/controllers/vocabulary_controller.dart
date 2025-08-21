@@ -36,10 +36,11 @@ class VocabularyController extends GetxController {
     loading.value = false;
   }
 
-  Future<int> countVocabularyByStatus(String status) async {
+  Future<int> countVocabularyByStatus(String status, String topicID) async {
     if (Get.find<UsersController>().user.value.role == 'admin') {
       var snapshoot = await vocabularyCollection
           .where('status', isEqualTo: status)
+          .where('topic_id', isEqualTo: topicID)
           .get();
       return snapshoot.docs.length;
     } else {
