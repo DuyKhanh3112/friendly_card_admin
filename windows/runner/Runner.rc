@@ -89,14 +89,14 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "friendly_card_admin" "\0"
+            VALUE "CompanyName", "VDKHANH" "\0"
+            VALUE "FileDescription", "Friendly Card Admin" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "friendly_card_admin" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 VDKHANH. All rights reserved." "\0"
             VALUE "OriginalFilename", "friendly_card_admin.exe" "\0"
-            VALUE "ProductName", "friendly_card_admin" "\0"
-            VALUE "ProductVersion", VERSION_AS_STRING "\0"
+            VALUE "ProductName", "Friendly Card Admin" "\0"
+            VALUE "ProductVersion", Friendly Card Admin "\0"
         END
     END
     BLOCK "VarFileInfo"
