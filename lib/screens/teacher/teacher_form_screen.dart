@@ -37,7 +37,10 @@ class TeacherFormScreen extends StatelessWidget {
     RxList<XFile> listFile = <XFile>[].obs;
     RxList<TeacherInfo> listTeacherInfo = <TeacherInfo>[].obs;
     listTeacherInfo.value = [];
-    listTeacherInfo.value.addAll(teacherController.listTeacherInfo.value);
+
+    if (teacherController.teacher.value.id != '') {
+      listTeacherInfo.value.addAll(teacherController.listTeacherInfo.value);
+    }
 
     return Obx(() {
       return teacherController.loading.value

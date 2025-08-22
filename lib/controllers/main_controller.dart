@@ -111,7 +111,7 @@ class MainController extends GetxController {
                      Mật khẩu: <strong>${users.password}</strong>
               </div>
                <div style="font-size:16px; color:#5BC0DE; font-style:italic; margin-top:12px;">
-                                <a href="https://drive.google.com/drive/u/1/folders/1PIx1WFGdLkzzdTq6d3O1P6j79huvBL5-">Nhấn vào đây để cài đặt ứng dụng desktop Firendly Card dành cho giáo viên.</a>
+                                <a href="https://drive.google.com/drive/u/1/folders/1PIx1WFGdLkzzdTq6d3O1P6j79huvBL5-">Nhấn vào đây để cài đặt ứng dụng desktop Friendly Card dành cho giáo viên.</a>
                         </div>
        </div>
 </div>''';

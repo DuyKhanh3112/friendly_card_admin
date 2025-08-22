@@ -109,7 +109,7 @@ class OverviewScreen extends StatelessWidget {
                                       [
                                         {
                                           'value': 'active',
-                                          'label': 'Đàng hoạt động',
+                                          'label': 'Đang hoạt động',
                                         },
                                         {
                                           'value': 'active',
