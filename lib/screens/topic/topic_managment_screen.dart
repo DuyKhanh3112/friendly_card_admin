@@ -142,18 +142,33 @@ class TopicManagmentScreen extends StatelessWidget {
                             crossAxisSpacing: 8,
                             mainAxisSpacing: 8,
                             children: listTopic.value
-                                .getRange(
-                                  offset.value * limit.value,
-                                  (offset.value + 1) * limit.value >=
-                                          listTopic.value.length
-                                      ? listTopic.value.length
-                                      : (offset.value + 1) * limit.value,
-                                )
                                 .where(
                                   (item) =>
                                       item.status ==
                                       Tool.listStatus[currentPage
                                           .value]['value'],
+                                )
+                                .toList()
+                                .getRange(
+                                  offset.value * limit.value,
+                                  (offset.value + 1) * limit.value >=
+                                          listTopic.value
+                                              .where(
+                                                (item) =>
+                                                    item.status ==
+                                                    Tool.listStatus[currentPage
+                                                        .value]['value'],
+                                              )
+                                              .length
+                                      ? listTopic.value
+                                            .where(
+                                              (item) =>
+                                                  item.status ==
+                                                  Tool.listStatus[currentPage
+                                                      .value]['value'],
+                                            )
+                                            .length
+                                      : (offset.value + 1) * limit.value,
                                 )
                                 .map((item) => topicItem(context, item))
                                 .toList(),
@@ -176,7 +191,15 @@ class TopicManagmentScreen extends StatelessWidget {
                             child: Icon(Icons.arrow_left_rounded, size: 128),
                           )
                         : SizedBox(),
-                    (offset.value + 1) * limit.value < listTopic.value.length
+                    (offset.value + 1) * limit.value <
+                            listTopic.value
+                                .where(
+                                  (item) =>
+                                      item.status ==
+                                      Tool.listStatus[currentPage
+                                          .value]['value'],
+                                )
+                                .length
                         ? InkWell(
                             onTap: () {
                               offset.value = offset.value + 1;
