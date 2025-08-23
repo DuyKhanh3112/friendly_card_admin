@@ -97,7 +97,8 @@ class TeacherController extends GetxController {
         'https://res.cloudinary.com/drir6xyuq/image/upload/v1749203203/logo_icon.png';
     batch.set(refTeacher, teacher.value.toVal());
     await batch.commit();
-    createTeacherInfor(listFile, id);
+    await createTeacherInfor(listFile, id);
+
     await loadAllData();
     unawaited(Get.find<MainController>().sendMailWelcome(teacher.value));
     teacher.value = Users.initTeacher();
